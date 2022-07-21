@@ -1,31 +1,50 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
+import Image from './components/Image'
 
 function App() {
-  let [count, setCount] = useState(0)
+  //set count es la funcion que cambia el estado
+  //     valor  funcion
+  // const [count, setCount] = useState(0)
   //un estado puede cambiar la vista 
   //una variable normal no
-  console.log(count)
 
-  const handlePlus = () =>{
-    setCount(count + 1)
-  }
+  const [isShow, setIsShow] = useState(false)
+  // console.log(count)
 
-  const handleMenos = () => {
-    setCount(count - 1)
+  const togleState = () => {
+    setIsShow(!isShow)
   }
+  
 
-  const handleReset = () => {
-    setCount(count - count)
-  }
+  // const handlePlus = () =>{
+  //   setCount(count + 1)
+  // }
+
+  // const handleMinus = () => {
+  //   setCount(count - 1)
+  // }
+
+  // // const handleMinus = () => {
+  // //   setCount(count - 1)
+  // // }
+
+  // const handleReset = () => {
+  //   setCount(0)
+  //   //setCount(count - count)
+  // }
 
   return (
     <div className="App">
-     <h1>{count}</h1>
-     <button onClick={handlePlus}>+1</button>
-     <button onClick={handleMenos}>-</button>
-     <button onClick={handleReset}>Reset</button>
+     <h1>
+      {
+        isShow ? <Image /> : 'Hay una imagen oculta'
+      }
+     </h1>
+
+     <button onClick={togleState}>Change Status</button>
+     
     </div>
   )
 }
